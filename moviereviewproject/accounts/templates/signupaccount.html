@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Sign Up{% endblock %}
+{% block content %}
+<br>
+
+<form method = "POST">
+    {% csrf_token %}
+    <div class="mb-3">
+    <h3>Sign Up</h3><br>
+        {% if error %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{ error }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endif %}
+      {{ form.as_p }}
+    </div>
+    <button type="submit" class="btn btn-primary">SignUp</button>
+  </form>
+  <br>
+{% endblock content %}
